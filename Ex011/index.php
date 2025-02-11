@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrays e Matrizes</title>
-    <style>
-    body {
-        background-color: #2D2D2D;
-        color: white;
-    }
-    </style>
 </head>
 <body>
 
@@ -28,7 +22,7 @@
             $arrayAssociativo = [
                 "nome" => "Sami",
                 "idade" => "20",
-                "cidade" => "SP"               
+                "cidade" => "SP"              
             ];
 
 
@@ -108,7 +102,7 @@
             $exemploMatriz = [
                 [1, 2], // Primeira Linha
                 [4, 5], // Segunda Linha
-                [7, 8] // Terceira Linha
+                [7, 8]  // Terceira Linha
             ];
 
         
