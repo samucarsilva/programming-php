@@ -21,6 +21,9 @@
         // Criando Uma Classe
 
 
+                echo "<h4> Pessoa </h4>";
+
+
             class Pessoa {
 
 
@@ -45,18 +48,22 @@
 
 
         // Instanciando um Objeto
-            $Geovanna = new Pessoa();
+            $geovanna = new Pessoa();
 
-            $Geovanna -> nome = "Geovanna";
-            $Geovanna -> idade = 20;
+            $geovanna -> nome = "Geovanna";
+            $geovanna -> idade = 20;
 
 
         // Exibindo a Saudação
-            $Geovanna -> saudacao();
+            $geovanna -> saudacao();
 
 
 
         // Criando Uma Classe
+
+
+                echo "<h4> Carro </h4>";
+
 
             class Carro {
 
@@ -100,6 +107,9 @@
         // Criando Uma Classe
 
 
+                echo "<h4> Produto </h4>";
+
+
             class Produto {
 
 
@@ -113,7 +123,7 @@
 
 
 
-                // Construtor: Chamado automaticamente quando um objeto é criado (instanciado)
+                // Construtor: chamado automaticamente quando um objeto é criado (instanciado); geralmente, é utilizado para inicializar atributos
 
                     public function __construct($nome, $preco) {
 
@@ -123,7 +133,28 @@
                         $this -> preco = $preco;
 
                         echo "O produto \"$this->nome\" foi criado com sucesso!" . $quebraDeLinha;
-                        echo "O valor do produto \"$this->nome\" equivale a R$ ", number_format($this->preco, 2, ",", ".") . $quebraDeLinha;
+
+                    }
+
+
+                // Destrutor: chamado automaticamente quando uma referência a um objeto específico é inexistente
+
+                    public function __destruct() {
+
+                        global $quebraDeLinha;
+
+                        echo "O produto \"$this->nome\" foi removido com sucesso..." . $quebraDeLinha;
+
+                    }
+                
+                
+                // Exibir Detalhes do Produto
+
+                    public function exibirDetalhes() {
+
+                        global $quebraDeLinha;
+
+                        echo "Nome: $this->nome" . $quebraDeLinha . "Preço: R$ ", number_format($this->preco, 2, ",", ".") . $quebraDeLinha;
 
                     }
 
@@ -132,11 +163,67 @@
 
 
         // Instanciando Objetos
-            $produtoUm = new Produto("Camiseta", 39.90); // O construtor está sendo chamado
-            $produtoDois = new Produto("Calça Jeans", 69.00);
+            $produto01 = new Produto("Camiseta", 39.90); // O método construtor está sendo chamado
+            $produto02 = new Produto("Calça Jeans", 69.00);
 
 
-            // Destrutor: 
+            $produto01->exibirDetalhes(); // Exibindo detalhes do primeiro produto
+
+
+            unset($produto01); // Removendo o produto com o método unset (Chama o método destruidor explicitamente)
+            unset($produto02); // ^
+
+
+
+        // Criando Uma Classe
+
+
+                echo "<h4> Banco </h4>";
+
+
+            class ConexaoBanco {
+
+                // Atributos
+
+
+                    private $conexao;
+
+
+                // Métodos
+
+
+
+                // Construtor: simula abrir a conexão com o banco de dados
+
+                    public function __construct() {
+
+                        global $quebraDeLinha;
+
+                        $this -> conexao = "A conexão ao banco de dados foi aberta!";
+
+                        echo $this->conexao . $quebraDeLinha;
+
+                    }
+
+
+                // Destrutor: simula fechar a conexão com o banco de dados
+
+                    public function __destruct() {
+
+                        global $quebraDeLinha;
+
+                        $this -> conexao = "A conexão com o banco de dados foi fechada.";
+
+                        echo $this->conexao . $quebraDeLinha;
+
+                    }
+
+
+            }
+
+
+        // Instanciando Objetos
+            $conectarAoBanco = new ConexaoBanco(); // O construtor está sendo chamado
 
 
     ?>
